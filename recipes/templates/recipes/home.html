@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добро пожаловать в мир рецептов!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #333;
+        }
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.85);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: #8B4513;
+            text-align: center;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .button {
+            background-color: #f4a261;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #e76f51;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h1>Выберите категорию рецептов</h1>
+        <div class="buttons">
+            <a href="{% url 'breakfast' %}" class="button">Завтраки</a>
+            <a href="{% url 'lunch' %}" class="button">Обеды</a>
+            <a href="{% url 'dinner' %}" class="button">Ужины</a>
+        </div>
+    </div>
+</body>
+</html>

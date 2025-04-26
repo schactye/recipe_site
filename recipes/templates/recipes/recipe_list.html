@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лучшие рецепты</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.85);
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #8B4513;
+            margin-bottom: 40px;
+            font-size: 3em;
+        }
+
+        .add-recipe {
+            display: block;
+            width: 200px;
+            margin: 0 auto 30px auto;
+            padding: 10px 20px;
+            background-color: #f4a261;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+        }
+
+        .add-recipe:hover {
+            background-color: #e76f51;
+        }
+
+        .recipes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .recipe {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .recipe:hover {
+            transform: translateY(-5px);
+        }
+
+        .recipe h2 {
+            color: #d2691e;
+            margin-top: 0;
+        }
+
+        .ingredients, .instructions {
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h1>{{ category }}</h1> 
+        <h1>Коллекция рецептов</h1>
+
+        <a href="#" class="add-recipe">Добавить рецепт</a>
+
+        <div class="recipes">
+            {% for recipe in recipes %}
+                <div class="recipe">
+                    <h2>{{ recipe.title }}</h2>
+                    <div class="ingredients">
+                        <strong>Ингредиенты:</strong> {{ recipe.ingredients }}
+                    </div>
+                    <div class="instructions">
+                        <strong>Приготовление:</strong> {{ recipe.instructions }}
+                    </div>
+                </div>
+            {% empty %}
+                <p style="text-align: center;">Пока нет рецептов. Создай первый кулинарный шедевр!</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
