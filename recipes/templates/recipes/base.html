@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Рецепты{% endblock %}</title>
+    <link rel="stylesheet" href="/static/recipes/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Кулинарная книга</h1>
+        <nav>
+            <a href="{% url 'recipes:home' %}">Главная</a>
+            <a href="{% url 'recipes:breakfast' %}">Завтраки</a>
+            <a href="{% url 'recipes:lunch' %}">Обеды</a>
+            <a href="{% url 'recipes:dinner' %}">Ужины</a>
+            <a href="{% url 'recipes:add_recipe' %}">Добавить рецепт</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2024 Кулинарная книга. Все права защищены.</p>
+    </footer>
+</body>
+</html>
